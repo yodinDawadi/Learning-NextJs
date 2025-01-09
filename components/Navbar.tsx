@@ -4,11 +4,12 @@ import { useRouter } from 'next/navigation';
 const Navbar = () => {
   const router = useRouter();
   return (
-    <div className='w-full h-20 flex items-center justify-center flex-wrap bg-white mt-2 '>
+    <div className='w-full h-20 flex items-center justify-center flex-wrap bg-slate-100 mt-2 '>
       <div className='w-1/2 flex justify-center' id="image">
         <p className='text-black font-bold text-2xl'>NextJs</p>
       </div>
       <div className='w-1/2 flex justify-center gap-5 items-center' id="links">
+      <p>cart items: 20</p>
         <Button
         value="Login"
         type='button'

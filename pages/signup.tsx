@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/Button";
 import '@/app/globals.css';
+import Link from "next/link"
 
 function Signup() {
   return (  
@@ -23,6 +24,7 @@ function Signup() {
           className="text-white bg-black rounded-md px-7 py-2"
           value={"Login"}
           />
+          <Link href={"/login"}>Already have an account?</Link>
         </form>
       </div>
     </>

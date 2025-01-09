@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonTypes } from '@/types/ButtonTypes'
+import { ButtonTypes } from '@/types'
 function Button(props:ButtonTypes) {
   return (
     <button
