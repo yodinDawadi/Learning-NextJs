@@ -39,6 +39,7 @@ export interface CartProductsTypes {
 export interface CartContextTypes {
     cartProducts: CartProductsTypes[],
     setCartProducts: Dispatch<SetStateAction<CartProductsTypes[]>>
+    addToCart: (product: ProductsTypes) => void;
 };
 
 
@@ -49,4 +50,3 @@ export interface CardTypes {
     price:number,
     description:string
 }
-

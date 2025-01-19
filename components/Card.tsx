@@ -1,16 +1,26 @@
 "use client";
-import React from 'react'
+import React, { useState } from 'react'
 import Button from './Button';
 import { CardTypes } from '@/types';
 
 
 const Card = (props:CardTypes) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const MAX_DESCRIPTION_LENGTH = 50;
+  const toggleDescription = () => {
+    setIsExpanded(!isExpanded);
+  };
+  const displayedDescription = isExpanded
+    ? props.description
+    : props.description.length > MAX_DESCRIPTION_LENGTH
+      ? `${props.description.slice(0, MAX_DESCRIPTION_LENGTH)}...`
+      : props.description;
   const handleAddToCart =()=>{
-    
+
   }
   return (
-    <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-80">
-  <div className="relative p-2.5 h-52 overflow-hidden rounded-xl bg-clip-border">
+    <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
+  <div className="relative p-2.5 h-96 overflow-hidden rounded-xl bg-clip-border">
     <img
       src={props.image}
       alt="card-image"
@@ -27,7 +37,12 @@ const Card = (props:CardTypes) => {
       </p>
     </div>
     <p className="text-slate-600 leading-normal font-light">
-      {props.description}
+    {displayedDescription}
+        {props.description.length > MAX_DESCRIPTION_LENGTH && (
+          <button className="font-semibold text-black" onClick={toggleDescription}>
+            {isExpanded ? 'See Less' : 'See More'}
+          </button>
+        )}
     </p>
     <Button value='Add to cart'
     onClick={handleAddToCart}
